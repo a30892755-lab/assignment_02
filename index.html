@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Adams - Portfolio (Flexbox)</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* --- Global Styles & Variables --- */
+
+/* CSS Variables (rang define karne ke liye) */
+:root {
+    --bg-deep-dark: #111827;
+    --bg-card-dark: #1F2937;
+    --text-light-gray: #D1D5DB;
+    --text-medium-gray: #9CA3AF;
+    --text-white: #FFFFFF;
+    --brand-yellow: #FBBF24;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-deep-dark);
+    color: var(--text-light-gray);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block; /* Images ke neeche extra space hatane ke liye */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Link ka color parent jaisa hi rakho */
+}
+
+/* .container class poore layout ko center mein rakhti hai */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* --- 1. Header / Navbar --- */
+header {
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Header ke container par Flexbox lagaya gaya hai */
+.header-flex-container {
+    display: flex; /* Flexbox activate karein */
+    justify-content: space-between; /* Items ke beech mein space rakhein */
+    align-items: center; /* Items ko vertically center karein */
+}
+
+.logo {
+    display: flex; /* Icon aur text ko side-by-side rakhein */
+    align-items: center;
+    gap: 0.5rem; /* Beech mein thoda gap */
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--brand-yellow);
+    color: var(--bg-deep-dark);
+    border-radius: 50%;
+    font-weight: 800;
+}
+
+.main-nav {
+    display: flex; /* Nav links ko line mein rakhein */
+    gap: 2.5rem; /* Links ke beech gap */
+}
+
+.main-nav a {
+    color: var(--text-medium-gray);
+    font-weight: 500;
+    /* transition: color 0.2s;  <-- HOVER REMOVED */
+}
+
+/* .main-nav a:hover { ... }  <-- HOVER REMOVED */
+
+.main-nav a.active {
+    color: var(--text-white);
+}
+
+.social-menu {
+    display: flex; /* Social icons ko line mein rakhein */
+    align-items: center;
+    gap: 1.75rem;
+    color: var(--text-medium-gray);
+}
+
+/* .social-menu a:hover { ... } <-- HOVER REMOVED */
+
+.mobile-menu-btn {
+    display: none; /* Mobile button ko desktop par chupao */
+    background: none;
+    border: none;
+    color: var(--text-light-gray);
+    cursor: pointer;
+}
+
+/* --- 2. Hero Section --- */
+#hero {
+    margin-top: 4rem; /* 64px */
+    margin-bottom: 6rem; /* 96px */
+}
+
+/* Hero container par Flexbox */
+.hero-flex-container {
+    display: flex;
+    align-items: center; /* Text aur image ko vertically center karein */
+    gap: 4rem; /* Beech mein gap */
+}
+
+.hero-text {
+    flex: 1; /* Bachi hui space ka 1 hissa le lo (50%) */
+}
+
+.hero-text span {
+    font-size: 1.25rem;
+    color: var(--text-medium-gray);
+    font-weight: 500;
+}
+
+.hero-text h1 {
+    font-size: 5rem; /* 80px */
+    font-weight: 800;
+    color: var(--text-white);
+    line-height: 1.1;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-bar {
+    width: 6rem; /* 96px */
+    height: 6px;
+    background-color: var(--brand-yellow);
+    border-radius: 3px;
+    margin-bottom: 2rem;
+}
+
+.hero-text p {
+    font-size: 1.125rem;
+    color: var(--text-medium-gray);
+    max-width: 500px;
+}
+
+.hero-image-area {
+    flex: 1; /* Bachi hui space ka 1 hissa le lo (50%) */
+    position: relative; /* Iske andar .services-card ko position karne ke liye */
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 0.75rem;
+    margin-left: auto; /* Image ko right side par push karein */
+}
+
+/* --- SERVICES CARD STYLES REMOVED --- */
+
+
+/* --- 3. Sponsors Section --- */
+#sponsors {
+    background-color: var(--bg-card-dark);
+    border-radius: 0.75rem;
+    margin-bottom: 6rem;
+}
+
+/* Sponsor container par Flexbox */
+.sponsor-flex-container {
+    display: flex;
+    justify-content: space-around; /* Logos ke beech equal space */
+    align-items: center;
+    flex-wrap: wrap; /* Agar space kam ho toh wrap karein */
+    gap: 2rem; /* Items ke beech gap */
+    padding: 2.5rem 1.5rem;
+}
+
+.sponsor-logo {
+    display: flex; /* Icon aur text ko line mein rakhein */
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-medium-gray);
+}
+
+/* --- 4. "What Can I Do" Section --- */
+#services {
+    margin-bottom: 6rem;
+}
+
+/* Services container par Flexbox */
+.services-flex-container {
+    display: flex;
+    gap: 5rem; /* Left aur right content ke beech gap */
+}
+
+.services-left {
+    flex: 1; /* Bachi hui space ka 1 hissa (50%) */
+}
+
+.services-left h2 {
+    font-size: 2.75rem; /* 44px */
+    color: var(--text-white);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.services-left > p {
+    font-size: 1.125rem;
+    color: var(--text-medium-gray);
+    max-width: 500px;
+    margin-bottom: 3rem;
+}
+
+.stats-container {
+    display: flex; /* Stats ko layout karne ke liye */
+    flex-wrap: wrap; /* 2x2 grid banane ke liye wrap karein */
+    gap: 2rem; /* Items ke beech gap */
+}
+
+.stat-item {
+    flex-basis: calc(50% - 1rem); /* 2-column layout (50% - half gap) */
+}
+
+.stat-item span {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--brand-yellow);
+    line-height: 1;
+}
+
+.stat-item p {
+    font-size: 1.125rem;
+    color: var(--text-medium-gray);
+    margin-top: 0.5rem;
+}
+
+.services-right {
+    flex: 1; /* Bachi hui space ka 1 hissa (50%) */
+    display: flex;
+    flex-direction: column; /* Items ko vertically stack karein */
+    gap: 1.5rem; /* Items ke beech gap */
+}
+
+.service-item {
+    display: flex; /* Item ke andar flexbox */
+    justify-content: space-between; /* Content ko dono end par rakhein */
+    align-items: center;
+    background-color: var(--bg-card-dark);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    /* transition: box-shadow 0.2s, transform 0.2s; <-- HOVER REMOVED */
+}
+
+/* .service-item:hover { ... } <-- HOVER REMOVED */
+
+
+.service-item-left {
+    display: flex; /* Image aur text ko line mein rakhein */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.service-item-left img {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.service-item-left h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.service-item-left p {
+    color: var(--text-medium-gray);
+}
+
+.service-item-right {
+    color: var(--brand-yellow);
+}
+
+
+/* --- Responsive Design (Mobile ke liye) --- */
+
+/* 992px se kam screen par */
+@media (max-width: 992px) {
+    .hero-flex-container {
+        flex-direction: column; /* Hero section ko stack karein */
+        gap: 2rem;
+    }
+    
+    .hero-image-area {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* .services-card rule removed */
+
+    .services-flex-container {
+        flex-direction: column; /* Services section ko stack karein */
+        gap: 3rem;
+    }
+}
+
+/* 768px se kam screen par */
+@media (max-width: 768px) {
+    .main-nav,
+    .social-menu {
+        display: none; /* Desktop nav ko chupao */
+    }
+
+    .mobile-menu-btn {
+        display: block; /* Mobile button dikhao */
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem; /* Heading chhota karein */
+    }
+
+    .sponsor-flex-container {
+        justify-content: center; /* Logos ko center karein */
+    }
+
+    .stat-item {
+        flex-basis: 100%; /* Stats ko full width karein (single column) */
+        text-align: center;
+    }
+
+    .service-item {
+        flex-direction: column; /* Service item ko stack karein */
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .service-item-right {
+        margin-left: auto; /* Arrow ko right mein rakhein */
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- 1. Header / Navbar -->
+    <header>
+        <!-- .container flexbox layout ke content ko center mein rakhta hai -->
+        <div class="container header-flex-container">
+            
+            <!-- Logo -->
+            <div class="logo">
+                <span class="logo-icon">A</span>
+                <span class="logo-text">Adams</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav class="main-nav">
+                <a href="#" class="active">Home</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Testimonial</a>
+                <a href="#">About</a>
+            </nav>
+
+            <!-- Social & Menu Icons -->
+            <div class="social-menu">
+                <a href="#">
+                    <!-- LinkedIn SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#">
+                    <!-- Dribbble/Globe SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </a>
+                <a href="#">
+                    <!-- Menu SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button (hidden on desktop) -->
+            <button class="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <!-- Yeh .container flexbox hai jo text aur image ko side-by-side rakhta hai -->
+            <div class="container hero-flex-container">
+                
+                <!-- Left Text Content -->
+                <div class="hero-text">
+                    <span>I'm</span>
+                    <h1>James Adams</h1>
+                    <div class="highlight-bar"></div>
+                    <p>
+                        A freelancer who provides services for digital programming and design content needs, for all businesses with more than 10 years of experience.
+                    </p>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors">
+            <!-- Yeh .container flexbox hai jo logos ko line mein rakhta hai -->
+            <div class="container sponsor-flex-container">
+                <div class="sponsor-logo">
+                    <!-- Meta Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Z"></path><path d="m15.5 16-3.4-3.4a1 1 0 0 0-1.1.1l-2.5 2.5a1 1 0 0 1-1.1.1L3.9 12.8"></path><path d="m15.5 16 4.6-4.6a1 1 0 0 0-1.1-1.1L16.5 13"></path></svg>
+                    <span>Meta</span>
+                </div>
+                <div class="sponsor-logo">
+                    <!-- Google Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Google</span>
+                </div>
+                <div class="sponsor-logo">
+                    <!-- LinkedIn Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <span>Linked in</span>
+                </div>
+                <div class="sponsor-logo">
+                    <!-- Slack Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3H7V9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v2"></path><path d="M18 10V7a3 3 0 0 0-3-3h-1a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3Z"></path><path d="M12 22v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3Z"></path></svg>
+                    <span>slack</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- "What Can I Do" Section -->
+        <section id="services">
+            <!-- Yeh .container flexbox hai jo left/right content ko side-by-side rakhta hai -->
+            <div class="container services-flex-container">
+                
+                <!-- Left Content (Text & Stats) -->
+                <div class="services-left">
+                    <h2>What Can I Do For Your Needs</h2>
+                    <p>
+                        It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality.
+                    </p>
+                    
+                    <!-- Stats section, yeh khud ek flex container hai -->
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span>250+</span>
+                            <p>Project Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <span>100+</span>
+                            <p>Community Network</p>
+                        </div>
+                        <div class="stat-item">
+                            <span>30+</span>
+                            <p>Contract Remote</p>
+                        </div>
+                        <div class="stat-item">
+                            <span>10+</span>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content (Services List) -->
+                <!-- Yeh flex container hai jo service items ko vertically stack karta hai -->
+                <div class="services-right">
+                    
+                    <!-- Service Item 1 (yeh khud ek flex container hai) -->
+                    <a href="#" class="service-item">
+                        <div class="service-item-left">
+                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=UI/UX&font=inter" alt="UI/UX Design Preview">
+                            <div>
+                                <h3>UI/UX Design</h3>
+                                <p>117 Project</p>
+                            </div>
+                               </div>
+                        <div class="service-item-right">
+                            <!-- Arrow Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </div>
+                    </a>
+
+                    <!-- Service Item 2 -->
+                    <a href="#" class="service-item">
+                        <div class="service-item-left">
+                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=Front+End&font=inter" alt="Front End Develop Preview">
+                            <div>
+                                <h3>Front End Develop</h3>
+                                <p>84 Project</p>
+                            </div>
+                        </div>
+                        <div class="service-item-right">
+                            <!-- Arrow Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </div>
+                    </a>
+
+                    <!-- Service Item 3 -->
+                    <a href="#" class="service-item">
+                        <div class="service-item-left">
+                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=Mobile+App&font=inter" alt="Mobile App Develop Preview">
+                            <div>
+                                <h3>Mobile App Develop</h3>
+                                <p>32 Project</p>
+                            </div>
+                        </div>
+                        <div class="service-item-right">
+                            <!-- Arrow Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
