@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Adam Ka Portfolio - Bilkul Image Jaisa</title>
     
-    <!-- Google Fonts Ka Istemal Hata Diya Gaya Hai. Ab Standard System Font Istemal Hoga. --><!-- Font Awesome (Icons Ke Liye) Load Kiya Gaya Hai --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts Ka Istemal Hata Diya Gaya Hai. Ab Standard System Font Istemal Hoga. -->
+    
+    <!-- Font Awesome (Icons Ke Liye) Load Kiya Gaya Hai -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
         /* Global Styles (Poore Page Ki Styling) */
         body {
             /* 'Inter' Ki Jagah Standard Sans-Serif Font Istemal Kiya Gaya Hai */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+            font-family: Arial, sans-serif; 
             background-color: #20202F; /* Gehra (Dark) Background Rang */
             color: #E2E8F0; /* Halka (Light) Text */
             margin: 0;
@@ -230,12 +233,11 @@
         .client-logo i {
             font-size: 32px;
         }
-        /* Yahan main images ke bajaye icons aur text use kar raha hu jo image mein dikh rahe hain */
-        .client-logo .meta-icon { color: #FFC000; } /* Image mein Meta ka icon peela hai */
-        .client-logo .google-icon { color: #4285F4; } /* Google ka standard blue */
-        .client-logo .linkedin-icon { color: #0A66C2; } /* LinkedIn ka standard blue */
-        .client-logo .slack-icon { color: #36C5F0; } /* Slack ka standard sky blue */
-        .client-logo .slack-text-green { color: #2EB67D; } /* Slack ke text ka hara rang */
+        .client-logo .meta-icon { color: #FFC000; }
+        .client-logo .google-icon { color: #4285F4; } /* Google Ka Blue */
+        .client-logo .linkedin-icon { color: #0A66C2; } /* LinkedIn Ka Blue */
+        .client-logo .slack-icon { color: #36C5F0; } /* Slack Ka Sky Blue */
+        .client-logo .slack-text-green { color: #2EB67D; } /* Slack Ka Hara Rang */
 
         /* Services and Stats Section (Khidmaat Aur Aadad-o-Shumaar) */
         .services-stats-section {
@@ -315,29 +317,8 @@
             height: 60px;
             border-radius: 8px;
             object-fit: cover;
-            /* Yahan hum image ke background color se milta-julta color code use kar rahe hain */
-            /* Aur image ke content ke liye placeholder text bhi */
+            background-color: #3B4B60; /* Image Ke Mutabiq Placeholder Background */
         }
-        /* Har service card ke liye alag image ya background color */
-        .service-card-item.uiux .icon {
-            background-color: #34495E; /* Image 1 ka background color */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%2334495E"/><rect x="10" y="15" width="40" height="30" rx="4" fill="%23fff" opacity=".2"/><rect x="15" y="20" width="30" height="20" rx="2" fill="%23fff" opacity=".3"/><circle cx="25" cy="30" r="5" fill="%23FFC000"/><path d="M40 25l-5 5h10z" fill="%23FFC000"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .service-card-item.frontend .icon {
-            background-color: #2C3E50; /* Image 2 ka background color */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232C3E50"/><path d="M20 20L40 20L35 40L25 40Z" fill="%23fff" opacity=".3"/><rect x="22" y="22" width="16" height="16" rx="2" fill="%23FFC000"/><path d="M15 30l5-5h-5z" fill="%23FFC000"/><path d="M45 30l-5-5h5z" fill="%23FFC000"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .service-card-item.mobileapp .icon {
-            background-color: #4A235A; /* Image 3 ka background color */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%234A235A"/><rect x="20" y="10" width="20" height="40" rx="4" fill="%23fff" opacity=".2"/><rect x="23" y="13" width="14" height="34" rx="2" fill="%23fff" opacity=".3"/><circle cx="30" cy="18" r="3" fill="%23FFC000"/><rect x="25" y="25" width="10" height="5" rx="1" fill="%23FFC000"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
         .service-card-item h3 {
             font-size: 20px;
             font-weight: 700;
@@ -372,7 +353,6 @@
                 margin-top: 40px;
                 width: 100%;
                 max-width: 400px;
-                left: auto; /* Remove fixed left position for mobile */
             }
             .services-stats-grid {
                 grid-template-columns: 1fr;
@@ -408,16 +388,13 @@
             .client-logo i {
                 font-size: 28px;
             }
-            /* Hero image wrapper ko chhota karein mobile par */
-            .hero-image-wrapper {
-                max-width: 300px; 
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Header (Navigation Bar) Ka Code --><header>
+    <!-- 1. Header (Navigation Bar) Ka Code -->
+    <header>
         <div class="container flex-between">
             <a href="#" class="header-logo">Adams</a>
             
@@ -440,10 +417,12 @@
         </div>
     </header>
 
-    <!-- 2. Hero Section (Main Content) Ka Code --><main class="container">
+    <!-- 2. Hero Section (Main Content) Ka Code -->
+    <main class="container">
         <section class="hero-section">
             
-            <!-- Bayein (Left) Taraf Ka Text Content --><div class="hero-left">
+            <!-- Bayein (Left) Taraf Ka Text Content -->
+            <div class="hero-left">
                 <p>I'm</p>
                 <h1>James Adam</h1>
                 <div class="underline"></div>
@@ -452,13 +431,15 @@
                 </p>
             </div>
             
-            <!-- Dayein (Right) Taraf Ki Image Aur Service Card --><div class="hero-right">
+            <!-- Dayein (Right) Taraf Ki Image Aur Service Card -->
+            <div class="hero-right">
                 <div class="hero-image-wrapper">
-                    <!-- Yeh main hero image hai. Aap iski jagah apni image laga sakte hain. --><!-- Placeholder image jo image mein dikh rahe vyakti se milta julta hai --><img src="https://assets.website-files.com/640b3ff638d01119566e2c36/640b3ff638d011504d6e2cf0_profile-pic-min-p-500.png" 
+                    <img src="https://placehold.co/800x800/27374D/ffffff?text=James+Adam" 
                          alt="James Adam - Digital Freelancer">
                 </div>
                 
-                <!-- Services Card Jo Image Ko Overlap Kar Raha Hai --><div class="services-card">
+                <!-- Services Card Jo Image Ko Overlap Kar Raha Hai -->
+                <div class="services-card">
                     <p class="title">Services</p>
                     <h2>Let's build quality products in programming and design with my services</h2>
                     <a href="#">
@@ -475,22 +456,23 @@
         </section>
     </main>
 
-    <!-- 3. Client Bar (Partner Logos) Ka Code --><section class="client-bar-section">
+    <!-- 3. Client Bar (Partner Logos) Ka Code -->
+    <section class="client-bar-section">
         <div class="container">
             <div class="client-bar">
-                <!-- Meta Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
+                <div class="client-logo">
                     <i class="fab fa-meta meta-icon"></i>
                     <span>Meta</span>
                 </div>
-                <!-- Google Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
+                <div class="client-logo">
                     <i class="fab fa-google google-icon"></i>
                     <span>Google</span>
                 </div>
-                <!-- LinkedIn Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
+                <div class="client-logo">
                     <i class="fab fa-linkedin linkedin-icon"></i>
                     <span>Linked <span style="color: #0A66C2;">in</span></span>
                 </div>
-                <!-- Slack Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
+                <div class="client-logo">
                     <i class="fab fa-slack slack-icon"></i>
                     <span><span class="slack-text-green">s</span>lack</span>
                 </div>
@@ -498,18 +480,21 @@
         </div>
     </section>
 
-    <!-- 4. Services Aur Statistics (Aadad-o-Shumaar) Section Ka Code --><section class="services-stats-section">
+    <!-- 4. Services Aur Statistics (Aadad-o-Shumaar) Section Ka Code -->
+    <section class="services-stats-section">
         <div class="container">
             <div class="services-stats-grid">
                 
-                <!-- Bayein Taraf Ka Title Aur Stats --><div class="stats-left">
+                <!-- Bayein Taraf Ka Title Aur Stats -->
+                <div class="stats-left">
                     <h2>What Can I Do For Your Needs</h2>
                     <div class="underline"></div>
                     <p class="description">
                         It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality.
                     </p>
 
-                    <!-- Statistics Grid Ka Code --><div class="stats-grid">
+                    <!-- Statistics Grid Ka Code -->
+                    <div class="stats-grid">
                         <div class="stat-item">
                             <p class="number">250+</p>
                             <p class="label">Project Completed</p>
@@ -529,11 +514,13 @@
                     </div>
                 </div>
 
-                <!-- Dayein Taraf Ke Service Cards --><div class="services-right">
+                <!-- Dayein Taraf Ke Service Cards -->
+                <div class="services-right">
                     
-                    <!-- Service Card 1: UI/UX Design (Image Jaisa Icon) --><div class="service-card-item uiux">
+                    <!-- Service Card 1: UI/UX Design -->
+                    <div class="service-card-item">
                         <div class="icon-text">
-                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
+                            <img src="https://placehold.co/60x60/34495E/ffffff?text=UX" alt="UI/UX Design Icon" class="icon">
                             <div>
                                 <h3>UI/UX Design</h3>
                                 <p class="project-count">117 Project</p>
@@ -542,9 +529,10 @@
                         <i class="fas fa-arrow-right arrow-icon"></i>
                     </div>
 
-                    <!-- Service Card 2: Front End Develop (Image Jaisa Icon) --><div class="service-card-item frontend">
+                    <!-- Service Card 2: Front End Develop -->
+                    <div class="service-card-item">
                         <div class="icon-text">
-                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
+                            <img src="https://placehold.co/60x60/2C3E50/ffffff?text=FE" alt="Front End Develop Icon" class="icon">
                             <div>
                                 <h3>Front End Develop</h3>
                                 <p class="project-count">84 Project</p>
@@ -553,9 +541,10 @@
                         <i class="fas fa-arrow-right arrow-icon"></i>
                     </div>
 
-                    <!-- Service Card 3: Mobile App Develop (Image Jaisa Icon) --><div class="service-card-item mobileapp">
+                    <!-- Service Card 3: Mobile App Develop -->
+                    <div class="service-card-item">
                         <div class="icon-text">
-                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
+                            <img src="https://placehold.co/60x60/4A235A/ffffff?text=MA" alt="Mobile App Develop Icon" class="icon">
                             <div>
                                 <h3>Mobile App Develop</h3>
                                 <p class="project-count">32 Project</p>
@@ -570,6 +559,7 @@
 
 </body>
 </html>
+
 
 
 
