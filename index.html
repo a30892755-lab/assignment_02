@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Adam Portfolio - Image Replica</title>
+    <title>James Adam Ka Portfolio - Bilkul Image Jaisa</title>
     
-    <!-- Font Awesome (Icons) Load Kiya Gaya Hai -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts Ka Istemal Hata Diya Gaya Hai. Ab Standard System Font Istemal Hoga. --><!-- Font Awesome (Icons Ke Liye) Load Kiya Gaya Hai --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* Global Styles */
+        /* Global Styles (Poore Page Ki Styling) */
         body {
-            /* Deeper Charcoal/Navy Background matching the image */
-            font-family: 'Inter', sans-serif; 
-            background-color: #1A1A22; /* Very Dark Background */
-            color: #E2E8F0; /* Light Text */
+            /* 'Inter' Ki Jagah Standard Sans-Serif Font Istemal Kiya Gaya Hai */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+            background-color: #20202F; /* Gehra (Dark) Background Rang */
+            color: #E2E8F0; /* Halka (Light) Text */
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -25,7 +24,7 @@
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 24px; /* Left Aur Right Padding */
             box-sizing: border-box;
         }
         a {
@@ -33,7 +32,7 @@
             color: inherit;
         }
 
-        /* Utility Classes */
+        /* Utility Classes (Dobara Istemal Honay Walay Styles) */
         .flex-center-y {
             display: flex;
             align-items: center;
@@ -44,14 +43,13 @@
             align-items: center;
         }
         .text-yellow {
-            color: #FFC000; /* Accent Yellow */
+            color: #FFC000; /* Image Mein Dikh Raha Peela Rang */
         }
-        .card-bg {
-            /* Card/Bar Background: Slightly lighter, bluish dark grey */
-            background-color: #2D2D3E; 
+        .bg-dark-card {
+            background-color: #27374D; /* Card Ka Gehra Rang */
         }
         .shadow-lg {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         .rounded-xl {
             border-radius: 1rem;
@@ -60,23 +58,18 @@
             border-radius: 50%;
         }
 
-        /* Header (Navigation Bar) */
+        /* Header (Ooper Ka Hissa) */
         header {
             padding: 24px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            /* Added sticky header for better feel, like in modern designs */
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: #1A1A22; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .header-logo {
             font-size: 24px;
             font-weight: 700;
-            color: #FFC000;
+            color: #FFC000; /* Image Se Milta-Julta Peela Rang */
         }
         .navbar a {
-            color: #A0AEC0;
+            color: #A0AEC0; /* Grey Text */
             margin-left: 32px;
             font-weight: 500;
             transition: color 0.2s;
@@ -94,7 +87,7 @@
             color: #FFC000;
         }
         .mobile-menu-icon {
-            display: none;
+            display: none; /* Desktop Par Chhupa Hua */
             background: none;
             border: none;
             color: #A0AEC0;
@@ -103,13 +96,13 @@
             margin-left: 16px;
         }
 
-        /* Hero Section */
+        /* Hero Section (Main Introduction Wala Hissa) */
         .hero-section {
             display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Right side slightly wider for image */
+            grid-template-columns: 1fr 1fr;
             gap: 48px;
-            padding: 80px 0 100px 0; /* Increased bottom padding to accommodate card overlap */
-            align-items: flex-start; 
+            padding: 80px 0 60px 0;
+            align-items: start; /* Content Ko Top Se Shuru Karein */
         }
         .hero-left p {
             font-size: 20px;
@@ -117,11 +110,11 @@
             margin-bottom: 8px;
         }
         .hero-left h1 {
-            font-size: 85px; 
+            font-size: 90px; /* Image Mein Bada Size */
             font-weight: 900;
             line-height: 1;
             margin: 0 0 12px 0;
-            letter-spacing: -2px;
+            letter-spacing: -2px; /* Image Mein Text Thoda Sikuada Hua */
         }
         .hero-left .underline {
             width: 80px;
@@ -139,47 +132,41 @@
 
         .hero-right {
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-end; /* Image Ko Dayein (Right) Taraf Karein */
             position: relative;
+            padding-top: 40px; /* Service Card Ko Overlap Karne Ke Liye Jagah */
         }
         .hero-image-wrapper {
+            position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 500px; /* Image Ki Zyada Se Zyada Chaudaai */
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 5;
-            aspect-ratio: 1/1.05; /* Image is slightly taller than wide */
-            
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
         .hero-image-wrapper img {
             display: block;
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
-            object-position: top center; /* Focus on the face */
-            filter: grayscale(10%) brightness(1.05);
+            filter: grayscale(10%) brightness(1.05); /* Image Ko Thoda Grey Aur Chamkeela */
         }
 
-        /* Overlapping Services Card Styling */
         .services-card {
-            background-color: #2D2D3E; 
+            background-color: #2C3E50; /* Image Mein Service Card Ka Rang Thoda Alag Hai */
             padding: 24px;
             border-radius: 16px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             position: absolute;
-            /* Positioning to match the overlap in the image */
-            bottom: -50px; 
-            left: -100px;
-            width: 320px;
-            max-width: 90%;
+            bottom: -60px; /* Image Ko Overlap Karne Ke Liye */
+            left: -80px; /* Image Ke Bayein (Left) Taraf */
+            width: 320px; /* Image Mein Dikh Rahi Chaudaai */
             z-index: 10;
         }
         .services-card .title {
-            color: #A0AEC0; /* Service text is gray, not yellow in the image */
-            font-weight: 500;
-            font-size: 14px;
+            color: #FFC000;
+            font-weight: 600;
+            font-size: 16px;
             margin-bottom: 4px;
         }
         .services-card h2 {
@@ -194,10 +181,6 @@
             font-size: 16px;
             display: inline-block;
             margin-bottom: 20px;
-            transition: opacity 0.2s;
-        }
-        .services-card a:hover {
-             opacity: 0.8;
         }
         .services-card .social-links {
             display: flex;
@@ -208,7 +191,7 @@
         .services-card .social-links a {
             width: 36px;
             height: 36px;
-            background-color: #3B4B60; 
+            background-color: #3B4B60; /* Social Icon Ka Background */
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -219,21 +202,21 @@
         }
         .services-card .social-links a:hover {
             background-color: #FFC000;
-            color: #1A1A22;
+            color: #20202F;
         }
 
-        /* Client Bar (Partnerships) */
+        /* Client Bar (Partnerships Wala Hissa) */
         .client-bar-section {
-            padding: 60px 0; 
+            padding: 60px 0; /* Hero Aur Client Bar Ke Beech Ki Jagah */
         }
         .client-bar {
-            background-color: #2D2D3E; 
+            background-color: #2C3E50; /* Image Mein Dikh Raha Client Bar Ka Rang */
             padding: 40px 24px;
             border-radius: 16px;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 30px 20px; 
+            gap: 30px 20px; /* Items Ke Beech Gap */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         .client-logo {
@@ -247,20 +230,21 @@
         .client-logo i {
             font-size: 32px;
         }
-        .client-logo .meta-icon { color: #5B5FC7; } /* Meta's gradient color used as a solid */
-        .client-logo .google-icon { color: #4285F4; }
-        .client-logo .linkedin-icon { color: #0A66C2; } 
-        .client-logo .slack-icon { color: #36C5F0; } 
-        .client-logo .slack-text-green { color: #2EB67D; } 
+        /* Yahan main images ke bajaye icons aur text use kar raha hu jo image mein dikh rahe hain */
+        .client-logo .meta-icon { color: #FFC000; } /* Image mein Meta ka icon peela hai */
+        .client-logo .google-icon { color: #4285F4; } /* Google ka standard blue */
+        .client-logo .linkedin-icon { color: #0A66C2; } /* LinkedIn ka standard blue */
+        .client-logo .slack-icon { color: #36C5F0; } /* Slack ka standard sky blue */
+        .client-logo .slack-text-green { color: #2EB67D; } /* Slack ke text ka hara rang */
 
-        /* Services and Stats Section */
+        /* Services and Stats Section (Khidmaat Aur Aadad-o-Shumaar) */
         .services-stats-section {
-            padding: 100px 0; 
+            padding: 100px 0; /* Client Bar Aur Is Section Ke Beech Ki Jagah */
         }
         .services-stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Matches the hero grid ratio */
-            gap: 60px; 
+            grid-template-columns: 1fr 1fr;
+            gap: 60px; /* Do Column Ke Beech Ki Doori */
             align-items: flex-start;
         }
         .stats-left h2 {
@@ -303,22 +287,20 @@
             margin-top: 4px;
         }
 
-        /* Service Cards List */
         .services-right .service-card-item {
-            background-color: #2D2D3E; 
+            background-color: #2C3E50; /* Service Card Ka Background */
             padding: 24px;
             border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s;
+            transition: background-color 0.2s;
         }
         .services-right .service-card-item:hover {
-            background-color: #37374A; 
-            transform: translateY(-2px);
+            background-color: #37475F; /* Hover Par Thoda Gehra */
         }
         .service-card-item:last-child {
             margin-bottom: 0;
@@ -328,20 +310,33 @@
             align-items: center;
             gap: 16px;
         }
-        /* Custom Icon Styling (Replacing Placeholder Images) */
-        .service-card-item .icon-wrapper {
+        .service-card-item .icon {
             width: 60px;
             height: 60px;
             border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: #1A1A22;
+            object-fit: cover;
+            /* Yahan hum image ke background color se milta-julta color code use kar rahe hain */
+            /* Aur image ke content ke liye placeholder text bhi */
         }
-        .icon-wrapper.ux-design { background-color: #64B5F6; } /* Light Blue */
-        .icon-wrapper.frontend { background-color: #FFD700; } /* Gold */
-        .icon-wrapper.mobile-app { background-color: #90A4AE; } /* Blue Gray */
+        /* Har service card ke liye alag image ya background color */
+        .service-card-item.uiux .icon {
+            background-color: #34495E; /* Image 1 ka background color */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%2334495E"/><rect x="10" y="15" width="40" height="30" rx="4" fill="%23fff" opacity=".2"/><rect x="15" y="20" width="30" height="20" rx="2" fill="%23fff" opacity=".3"/><circle cx="25" cy="30" r="5" fill="%23FFC000"/><path d="M40 25l-5 5h10z" fill="%23FFC000"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .service-card-item.frontend .icon {
+            background-color: #2C3E50; /* Image 2 ka background color */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232C3E50"/><path d="M20 20L40 20L35 40L25 40Z" fill="%23fff" opacity=".3"/><rect x="22" y="22" width="16" height="16" rx="2" fill="%23FFC000"/><path d="M15 30l5-5h-5z" fill="%23FFC000"/><path d="M45 30l-5-5h5z" fill="%23FFC000"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .service-card-item.mobileapp .icon {
+            background-color: #4A235A; /* Image 3 ka background color */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%234A235A"/><rect x="20" y="10" width="20" height="40" rx="4" fill="%23fff" opacity=".2"/><rect x="23" y="13" width="14" height="34" rx="2" fill="%23fff" opacity=".3"/><circle cx="30" cy="18" r="3" fill="%23FFC000"/><rect x="25" y="25" width="10" height="5" rx="1" fill="%23FFC000"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
 
         .service-card-item h3 {
             font-size: 20px;
@@ -358,38 +353,29 @@
             font-size: 20px;
         }
 
-        /* Responsive Design */
+        /* Responsive Design (Mobile Aur Tablet Ke Liye) */
         @media (max-width: 1024px) {
             .hero-section {
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
             .hero-right {
-                order: -1; 
+                order: -1; /* Mobile Par Image Ko Ooper Karein */
                 justify-content: center;
-            }
-            .hero-left {
-                text-align: center; /* Center text on mobile/tablet */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                padding-top: 0;
             }
             .hero-left h1 {
                 font-size: 70px;
             }
             .services-card {
-                position: static; 
-                margin: 40px auto 0 auto;
-                width: 90%;
+                position: static; /* Mobile Par Relative Position Hata Dein */
+                margin-top: 40px;
+                width: 100%;
+                max-width: 400px;
+                left: auto; /* Remove fixed left position for mobile */
             }
             .services-stats-grid {
                 grid-template-columns: 1fr;
-            }
-            .stats-left {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
             }
             .stats-left h2 {
                 font-size: 40px;
@@ -401,27 +387,37 @@
                 padding: 0 16px;
             }
             .navbar {
-                display: none;
+                display: none; /* Mobile Par Navigation Bar Chhupaayein */
             }
             .social-icons {
-                display: none;
+                display: none; /* Mobile Par Social Icons Chhupaayein */
             }
             .mobile-menu-icon {
-                display: block;
+                display: block; /* Mobile Par Menu Icon Dikhaayein */
             }
             .hero-left h1 {
                 font-size: 56px;
             }
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .client-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .client-logo {
+                font-size: 24px;
+            }
+            .client-logo i {
+                font-size: 28px;
+            }
+            /* Hero image wrapper ko chhota karein mobile par */
+            .hero-image-wrapper {
+                max-width: 300px; 
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header (Navigation Bar) -->
-    <header>
+    <!-- 1. Header (Navigation Bar) Ka Code --><header>
         <div class="container flex-between">
             <a href="#" class="header-logo">Adams</a>
             
@@ -444,12 +440,10 @@
         </div>
     </header>
 
-    <!-- Hero Section (Main Content) -->
-    <main class="container">
+    <!-- 2. Hero Section (Main Content) Ka Code --><main class="container">
         <section class="hero-section">
             
-            <!-- Left Text Content -->
-            <div class="hero-left">
+            <!-- Bayein (Left) Taraf Ka Text Content --><div class="hero-left">
                 <p>I'm</p>
                 <h1>James Adam</h1>
                 <div class="underline"></div>
@@ -458,16 +452,13 @@
                 </p>
             </div>
             
-            <!-- Right Image and Service Card -->
-            <div class="hero-right">
+            <!-- Dayein (Right) Taraf Ki Image Aur Service Card --><div class="hero-right">
                 <div class="hero-image-wrapper">
-                    <!-- Placeholder Image - Use a dark background placeholder to match the aesthetic -->
-                    <img src="https://placehold.co/800x800/1D1D27/ffffff?text=James+Adam" 
-                            alt="James Adam - Digital Freelancer">
+                    <!-- Yeh main hero image hai. Aap iski jagah apni image laga sakte hain. --><!-- Placeholder image jo image mein dikh rahe vyakti se milta julta hai --><img src="https://assets.website-files.com/640b3ff638d01119566e2c36/640b3ff638d011504d6e2cf0_profile-pic-min-p-500.png" 
+                         alt="James Adam - Digital Freelancer">
                 </div>
                 
-                <!-- Overlapping Services Card -->
-                <div class="services-card">
+                <!-- Services Card Jo Image Ko Overlap Kar Raha Hai --><div class="services-card">
                     <p class="title">Services</p>
                     <h2>Let's build quality products in programming and design with my services</h2>
                     <a href="#">
@@ -484,23 +475,22 @@
         </section>
     </main>
 
-    <!-- Client Bar (Partner Logos) -->
-    <section class="client-bar-section">
+    <!-- 3. Client Bar (Partner Logos) Ka Code --><section class="client-bar-section">
         <div class="container">
-            <div class="client-bar card-bg shadow-lg">
-                <div class="client-logo">
+            <div class="client-bar">
+                <!-- Meta Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
                     <i class="fab fa-meta meta-icon"></i>
                     <span>Meta</span>
                 </div>
-                <div class="client-logo">
+                <!-- Google Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
                     <i class="fab fa-google google-icon"></i>
                     <span>Google</span>
                 </div>
-                <div class="client-logo">
+                <!-- LinkedIn Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
                     <i class="fab fa-linkedin linkedin-icon"></i>
-                    <span>Linked<span style="color: #A0AEC0; font-weight: 500;">in</span></span>
+                    <span>Linked <span style="color: #0A66C2;">in</span></span>
                 </div>
-                <div class="client-logo">
+                <!-- Slack Logo - Image Mein Dikhne Wala Icon Aur Text --><div class="client-logo">
                     <i class="fab fa-slack slack-icon"></i>
                     <span><span class="slack-text-green">s</span>lack</span>
                 </div>
@@ -508,21 +498,18 @@
         </div>
     </section>
 
-    <!-- Services Aur Statistics Section -->
-    <section class="services-stats-section">
+    <!-- 4. Services Aur Statistics (Aadad-o-Shumaar) Section Ka Code --><section class="services-stats-section">
         <div class="container">
             <div class="services-stats-grid">
                 
-                <!-- Left Title and Stats -->
-                <div class="stats-left">
+                <!-- Bayein Taraf Ka Title Aur Stats --><div class="stats-left">
                     <h2>What Can I Do For Your Needs</h2>
                     <div class="underline"></div>
                     <p class="description">
                         It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality.
                     </p>
 
-                    <!-- Statistics Grid -->
-                    <div class="stats-grid">
+                    <!-- Statistics Grid Ka Code --><div class="stats-grid">
                         <div class="stat-item">
                             <p class="number">250+</p>
                             <p class="label">Project Completed</p>
@@ -542,16 +529,11 @@
                     </div>
                 </div>
 
-                <!-- Right Service Cards -->
-                <div class="services-right">
+                <!-- Dayein Taraf Ke Service Cards --><div class="services-right">
                     
-                    <!-- Service Card 1: UI/UX Design -->
-                    <div class="service-card-item">
+                    <!-- Service Card 1: UI/UX Design (Image Jaisa Icon) --><div class="service-card-item uiux">
                         <div class="icon-text">
-                            <!-- Icon Replacement for UX Design -->
-                            <div class="icon-wrapper ux-design">
-                                <i class="fas fa-drafting-compass"></i> 
-                            </div>
+                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
                             <div>
                                 <h3>UI/UX Design</h3>
                                 <p class="project-count">117 Project</p>
@@ -560,13 +542,9 @@
                         <i class="fas fa-arrow-right arrow-icon"></i>
                     </div>
 
-                    <!-- Service Card 2: Front End Develop -->
-                    <div class="service-card-item">
+                    <!-- Service Card 2: Front End Develop (Image Jaisa Icon) --><div class="service-card-item frontend">
                         <div class="icon-text">
-                            <!-- Icon Replacement for Front End Develop -->
-                            <div class="icon-wrapper frontend">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
                             <div>
                                 <h3>Front End Develop</h3>
                                 <p class="project-count">84 Project</p>
@@ -575,13 +553,9 @@
                         <i class="fas fa-arrow-right arrow-icon"></i>
                     </div>
 
-                    <!-- Service Card 3: Mobile App Develop -->
-                    <div class="service-card-item">
+                    <!-- Service Card 3: Mobile App Develop (Image Jaisa Icon) --><div class="service-card-item mobileapp">
                         <div class="icon-text">
-                            <!-- Icon Replacement for Mobile App Develop -->
-                            <div class="icon-wrapper mobile-app">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
+                            <!-- Image jaisa dikhne wala icon, inline SVG se banaya gaya hai --><div class="icon"></div>
                             <div>
                                 <h3>Mobile App Develop</h3>
                                 <p class="project-count">32 Project</p>
@@ -596,6 +570,7 @@
 
 </body>
 </html>
+
 
 
 
