@@ -1,594 +1,565 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASSIGNMENT_02</title>
-    <!-- Google Font: Inter --><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>James Adam Ka Portfolio - Bilkul Image Jaisa</title>
     
-<style>
-/* --- Global Styles & Variables --- */
-
-/* CSS Variables for a clean dark theme */
-:root {
-    --bg-deep-dark: #111827; /* Dark blue/gray background */
-    --bg-card-dark: #1F2937; /* Slightly lighter card background */
-    --text-light-gray: #D1D5DB;
-    --text-medium-gray: #9CA3AF;
-    --text-white: #FFFFFF;
-    --brand-yellow: #FBBF24; /* Primary accent color */
-}
-
-/* Basic Reset for consistent display */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-deep-dark);
-    color: var(--text-light-gray);
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block; 
-    border-radius: 0.75rem; /* Rounded corners for all images */
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    /* Hover transitions removed */
-}
-/* Hover effect removed */
-a:hover {
-    color: inherit; /* Simple text, no color change on hover */
-}
-
-/* .container centers content and sets max width */
-.container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-/* --- 1. Header / Navbar --- */
-header {
-    width: 100%;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.header-flex-container {
-    display: flex; /* Flex container for Navbar (Logo | Nav | Social) */
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-white);
-}
-
-.logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    background-color: var(--brand-yellow);
-    color: var(--bg-deep-dark);
-    border-radius: 50%;
-    font-weight: 800;
-}
-
-.main-nav {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.main-nav a {
-    color: var(--text-medium-gray);
-    font-weight: 500;
-}
-
-/* Active link color kept for current page indicator */
-.main-nav a.active {
-    color: var(--text-white);
-}
-
-.social-menu {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    color: var(--text-medium-gray);
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-light-gray);
-    cursor: pointer;
-}
-
-/* --- 2. Hero Section (Two-Column Layout for text and services card) --- */
-#hero {
-    margin-top: 4rem;
-    margin-bottom: 6rem;
-}
-
-.hero-flex-container {
-    display: flex; /* Key layout Flexbox */
-    align-items: center;
-    gap: 4rem; 
-}
-
-.hero-text {
-    flex: 1; /* Takes 50% width on large screens */
-}
-
-.hero-text span {
-    font-size: 1.25rem;
-    color: var(--text-medium-gray);
-    font-weight: 500;
-}
-
-.hero-text h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    color: var(--text-white);
-    line-height: 1.1;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.highlight-bar {
-    width: 6rem;
-    height: 6px;
-    background-color: var(--brand-yellow);
-    border-radius: 3px;
-    margin-bottom: 2rem;
-}
-
-.hero-text p {
-    font-size: 1.125rem;
-    color: var(--text-medium-gray);
-    max-width: 500px;
-}
-
-.hero-services-card-area {
-    flex: 1; /* Takes 50% width on large screens */
-    display: flex;
-    justify-content: center; /* Center the card horizontally */
-    align-items: center; /* Center the card vertically */
-    min-height: 400px; /* Give it some height to occupy space */
-    position: relative; /* For responsive placement of card */
-}
-
-/* Services Card (Positioned - now within hero-services-card-area) */
-.services-card {
-    /* Removed absolute positioning for simplicity and to match request context */
-    width: 300px; /* Fixed width as per the original design */
-    background-color: var(--bg-card-dark);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    z-index: 10;
-}
-
-.services-card h3 {
-    font-size: 1.25rem;
-    color: var(--text-white);
-    margin-bottom: 0.5rem;
-}
-
-.services-card p {
-    color: var(--text-medium-gray);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.show-more {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--brand-yellow);
-    font-weight: 600;
-    /* No hover effect */
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.icon-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    background-color: #4B5563;
-    border-radius: 50%;
-    color: var(--text-light-gray);
-    /* Transition and hover removed */
-}
-
-
-/* --- 3. Sponsors Section --- */
-#sponsors {
-    background-color: var(--bg-card-dark);
-    border-radius: 0.75rem;
-    margin-bottom: 6rem;
-    padding: 2.5rem 1.5rem;
-}
-
-.sponsor-flex-container {
-    display: flex; /* Flex container for logos */
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.sponsor-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-medium-gray);
-}
-
-/* --- 4. "What Can I Do" Section (Two-Column Layout) --- */
-#services {
-    margin-bottom: 6rem;
-}
-
-.services-flex-container {
-    display: flex; /* Key layout Flexbox */
-    gap: 5rem;
-}
-
-.services-left {
-    flex: 1; /* Takes 50% width */
-}
-
-.services-left h2 {
-    font-size: 2.75rem;
-    color: var(--text-white);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.services-left > p {
-    font-size: 1.125rem;
-    color: var(--text-medium-gray);
-    max-width: 500px;
-    margin-bottom: 3rem;
-}
-
-/* 2x2 Grid using Flexbox */
-.stats-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.stat-item {
-    flex-basis: calc(50% - 1rem); /* 2 columns with gap consideration */
-}
-
-.stat-item span {
-    display: block;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--brand-yellow);
-    line-height: 1;
-}
-
-.stat-item p {
-    font-size: 1.125rem;
-    color: var(--text-medium-gray);
-    margin-top: 0.5rem;
-}
-
-.services-right {
-    flex: 1; /* Takes 50% width */
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.service-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-card-dark);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    /* Hover transition and effects removed */
-}
-
-
-.service-item-left {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.service-item-left img {
-    width: 100px;
-    height: 75px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-
-.service-item-left h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-white);
-}
-
-.service-item-left p {
-    color: var(--text-medium-gray);
-}
-
-.service-item-right {
-    color: var(--brand-yellow);
-}
-
-
-/* --- Responsive Design (Mobile First adjustments) --- */
-
-/* Tablet & Smaller Desktop (992px) */
-@media (max-width: 992px) {
-    .hero-flex-container {
-        flex-direction: column; /* Hero section stacked */
-        gap: 3rem;
-    }
+    <!-- Google Fonts Ka Istemal Hata Diya Gaya Hai. Ab Standard System Font Istemal Hoga. -->
     
-    .hero-services-card-area {
-        width: 100%;
-        min-height: auto; /* Reset min-height for stacked layout */
-    }
-
-    /* Services Card should take full width on smaller screens */
-    .services-card {
-        width: 100%;
-        max-width: 350px; /* Optional: limit max-width even at 100% */
-        margin: 0 auto; /* Center the card */
-    }
-
-    .services-flex-container {
-        flex-direction: column; /* Services section stacked */
-        gap: 3rem;
-    }
-}
-
-/* Mobile (768px) */
-@media (max-width: 768px) {
-    .main-nav,
-    .social-menu {
-        display: none; /* Hide full nav on mobile */
-    }
-
-    .mobile-menu-btn {
-        display: block; /* Show mobile menu button */
-    }
-
-    .hero-text h1 {
-        font-size: 3rem; /* Smaller heading on mobile */
-    }
-
-    .stat-item {
-        flex-basis: 100%; /* Stats to full width (single column) */
-        text-align: center;
-    }
+    <!-- Font Awesome (Icons Ke Liye) Load Kiya Gaya Hai -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    .stat-item span {
-        font-size: 3rem;
-    }
+    <style>
+        /* Global Styles (Poore Page Ki Styling) */
+        body {
+            /* 'Inter' Ki Jagah Standard Sans-Serif Font Istemal Kiya Gaya Hai */
+            font-family: Arial, sans-serif; 
+            background-color: #20202F; /* Gehra (Dark) Background Rang */
+            color: #E2E8F0; /* Halka (Light) Text */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px; /* Left Aur Right Padding */
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .service-item {
-        flex-direction: column; /* Stack service item content */
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    /* Move the arrow icon to the right when content is stacked */
-    .service-item-right {
-        align-self: flex-end;
-    }
-}
-</style>
+        /* Utility Classes (Dobara Istemal Honay Walay Styles) */
+        .flex-center-y {
+            display: flex;
+            align-items: center;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .text-yellow {
+            color: #FFC000; /* Image Mein Dikh Raha Peela Rang */
+        }
+        .bg-dark-card {
+            background-color: #27374D; /* Card Ka Gehra Rang */
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .rounded-xl {
+            border-radius: 1rem;
+        }
+        .rounded-full {
+            border-radius: 50%;
+        }
+
+        /* Header (Ooper Ka Hissa) */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFC000; /* Image Se Milta-Julta Peela Rang */
+        }
+        .navbar a {
+            color: #A0AEC0; /* Grey Text */
+            margin-left: 32px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar a:hover {
+            color: #FFC000;
+        }
+        .social-icons a {
+            color: #A0AEC0;
+            margin-left: 16px;
+            font-size: 20px;
+            transition: color 0.2s;
+        }
+        .social-icons a:hover {
+            color: #FFC000;
+        }
+        .mobile-menu-icon {
+            display: none; /* Desktop Par Chhupa Hua */
+            background: none;
+            border: none;
+            color: #A0AEC0;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 16px;
+        }
+
+        /* Hero Section (Main Introduction Wala Hissa) */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 80px 0 60px 0;
+            align-items: start; /* Content Ko Top Se Shuru Karein */
+        }
+        .hero-left p {
+            font-size: 20px;
+            color: #A0AEC0;
+            margin-bottom: 8px;
+        }
+        .hero-left h1 {
+            font-size: 90px; /* Image Mein Bada Size */
+            font-weight: 900;
+            line-height: 1;
+            margin: 0 0 12px 0;
+            letter-spacing: -2px; /* Image Mein Text Thoda Sikuada Hua */
+        }
+        .hero-left .underline {
+            width: 80px;
+            height: 4px;
+            background-color: #FFC000;
+            border-radius: 2px;
+            margin-bottom: 32px;
+        }
+        .hero-left .description {
+            font-size: 18px;
+            color: #A0AEC0;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: flex-end; /* Image Ko Dayein (Right) Taraf Karein */
+            position: relative;
+            padding-top: 40px; /* Service Card Ko Overlap Karne Ke Liye Jagah */
+        }
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Image Ki Zyada Se Zyada Chaudaai */
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .hero-image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: grayscale(10%) brightness(1.05); /* Image Ko Thoda Grey Aur Chamkeela */
+        }
+
+        .services-card {
+            background-color: #2C3E50; /* Image Mein Service Card Ka Rang Thoda Alag Hai */
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            bottom: -60px; /* Image Ko Overlap Karne Ke Liye */
+            left: -80px; /* Image Ke Bayein (Left) Taraf */
+            width: 320px; /* Image Mein Dikh Rahi Chaudaai */
+            z-index: 10;
+        }
+        .services-card .title {
+            color: #FFC000;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .services-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0 0 16px 0;
+        }
+        .services-card a {
+            color: #FFC000;
+            font-weight: 500;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .services-card .social-links {
+            display: flex;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .services-card .social-links a {
+            width: 36px;
+            height: 36px;
+            background-color: #3B4B60; /* Social Icon Ka Background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #A0AEC0;
+            font-size: 14px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .services-card .social-links a:hover {
+            background-color: #FFC000;
+            color: #20202F;
+        }
+
+        /* Client Bar (Partnerships Wala Hissa) */
+        .client-bar-section {
+            padding: 60px 0; /* Hero Aur Client Bar Ke Beech Ki Jagah */
+        }
+        .client-bar {
+            background-color: #2C3E50; /* Image Mein Dikh Raha Client Bar Ka Rang */
+            padding: 40px 24px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px 20px; /* Items Ke Beech Gap */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .client-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #D1D8E0;
+        }
+        .client-logo i {
+            font-size: 32px;
+        }
+        .client-logo .meta-icon { color: #FFC000; }
+        .client-logo .google-icon { color: #4285F4; } /* Google Ka Blue */
+        .client-logo .linkedin-icon { color: #0A66C2; } /* LinkedIn Ka Blue */
+        .client-logo .slack-icon { color: #36C5F0; } /* Slack Ka Sky Blue */
+        .client-logo .slack-text-green { color: #2EB67D; } /* Slack Ka Hara Rang */
+
+        /* Services and Stats Section (Khidmaat Aur Aadad-o-Shumaar) */
+        .services-stats-section {
+            padding: 100px 0; /* Client Bar Aur Is Section Ke Beech Ki Jagah */
+        }
+        .services-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px; /* Do Column Ke Beech Ki Doori */
+            align-items: flex-start;
+        }
+        .stats-left h2 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 16px 0;
+        }
+        .stats-left .underline {
+            width: 60px;
+            height: 4px;
+            background-color: #FFC000;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+        .stats-left .description {
+            font-size: 18px;
+            color: #A0AEC0;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .stat-item {
+            border-left: 4px solid #FFC000;
+            padding-left: 16px;
+        }
+        .stat-item .number {
+            font-size: 40px;
+            font-weight: 700;
+            color: #FFC000;
+            margin: 0;
+        }
+        .stat-item .label {
+            font-size: 16px;
+            color: #A0AEC0;
+            margin-top: 4px;
+        }
+
+        .services-right .service-card-item {
+            background-color: #2C3E50; /* Service Card Ka Background */
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .services-right .service-card-item:hover {
+            background-color: #37475F; /* Hover Par Thoda Gehra */
+        }
+        .service-card-item:last-child {
+            margin-bottom: 0;
+        }
+        .service-card-item .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .service-card-item .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #3B4B60; /* Image Ke Mutabiq Placeholder Background */
+        }
+        .service-card-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .service-card-item .project-count {
+            font-size: 14px;
+            color: #A0AEC0;
+            margin-top: 4px;
+        }
+        .service-card-item .arrow-icon {
+            color: #FFC000;
+            font-size: 20px;
+        }
+
+        /* Responsive Design (Mobile Aur Tablet Ke Liye) */
+        @media (max-width: 1024px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .hero-right {
+                order: -1; /* Mobile Par Image Ko Ooper Karein */
+                justify-content: center;
+                padding-top: 0;
+            }
+            .hero-left h1 {
+                font-size: 70px;
+            }
+            .services-card {
+                position: static; /* Mobile Par Relative Position Hata Dein */
+                margin-top: 40px;
+                width: 100%;
+                max-width: 400px;
+            }
+            .services-stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-left h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .navbar {
+                display: none; /* Mobile Par Navigation Bar Chhupaayein */
+            }
+            .social-icons {
+                display: none; /* Mobile Par Social Icons Chhupaayein */
+            }
+            .mobile-menu-icon {
+                display: block; /* Mobile Par Menu Icon Dikhaayein */
+            }
+            .hero-left h1 {
+                font-size: 56px;
+            }
+            .client-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .client-logo {
+                font-size: 24px;
+            }
+            .client-logo i {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- 1. Header / Navbar --><header>
-        <div class="container header-flex-container">
+    <!-- 1. Header (Navigation Bar) Ka Code -->
+    <header>
+        <div class="container flex-between">
+            <a href="#" class="header-logo">Adams</a>
             
-            <!-- Logo --><div class="logo">
-                <span class="logo-icon">A</span>
-                <span class="logo-text">Adams</span>
-            </div>
-            
-            <!-- Navigation Links (Simple Text) --><nav class="main-nav">
-                <a href="#" class="active">Home</a>
+            <nav class="navbar">
+                <a href="#">Home</a>
                 <a href="#">Portfolio</a>
                 <a href="#">Testimonial</a>
                 <a href="#">About</a>
             </nav>
-
-            <!-- Social & Menu Icons (No Hover Effects) --><div class="social-menu">
-                <a href="#" aria-label="LinkedIn">
-                    <!-- LinkedIn SVG Icon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="#" aria-label="Website">
-                    <!-- Globe SVG Icon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                </a>
-                <a href="#" aria-label="More">
-                    <!-- Menu SVG Icon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </a>
+            
+            <div class="flex-center-y">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <button class="mobile-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-
-            <!-- Mobile Menu Button (hidden on desktop) --><button class="mobile-menu-btn" aria-label="Toggle menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
         </div>
     </header>
 
-    <!-- 2. Main Content --><main>
-        <!-- Hero Section (Now with Services Card on the right) --><section id="hero">
-            <div class="container hero-flex-container">
-                
-                <!-- Left Text Content --><div class="hero-text">
-                    <span>I'm</span>
-                    <h1>James Adams</h1>
-                    <div class="highlight-bar"></div>
-                    <p>
-                        A freelancer who provides services for digital programming and design content needs, for all businesses with more than 10 years of experience.
-                    </p>
-                </div>
-
-                <!-- Right Side - Now holds the Services Card --><div class="hero-services-card-area">
-                    <!-- Services Card --><div class="services-card">
-                        <h3>Services</h3>
-                        <p>Let's build quality products in programming and design with my services.</p>
-                        <a href="#" class="show-more">
-                            <span>show more</span>
-                            <!-- Arrow Icon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
-                        <!-- Social Icons --><div class="social-icons">
-                            <a href="#" class="icon-circle" aria-label="Facebook">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            </a>
-                            <a href="#" class="icon-circle" aria-label="Twitter">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 2.8 3.2 3.8 5.3 0 0-1.6.8-3.2 1.3 1 1.7 2.4 4 2.4 5.2 0 1.5-1.3 2.8-3 2.8-1.3 0-2.6-.9-3-2.3-.4 1.4-1.7 2.3-3 2.3-1.7 0-3-1.3-3-2.8 0-1.2 1.4-3.5 2.4-5.2-1.6-.5-3.2-1.3-3.2-1.3C5.9 9.6 7.1 7.8 8.7 6.4 8 4.3 8 2 8 2s1.4 0 3.2 1.3C13 3 15 3 16.8 3.3 18.6 2 20 2 20 2z"></path></svg>
-                            </a>
-                            <a href="#" class="icon-circle" aria-label="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
+    <!-- 2. Hero Section (Main Content) Ka Code -->
+    <main class="container">
+        <section class="hero-section">
+            
+            <!-- Bayein (Left) Taraf Ka Text Content -->
+            <div class="hero-left">
+                <p>I'm</p>
+                <h1>James Adam</h1>
+                <div class="underline"></div>
+                <p class="description">
+                    A freelancer who provides services for digital programming and design content needs, for all businesses with more than 10 years of experience.
+                </p>
             </div>
-        </section>
-
-        <!-- Sponsors Section --><section id="sponsors">
-            <div class="container sponsor-flex-container">
-                <div class="sponsor-logo">
-                    <!-- Meta Icon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Z"></path><path d="m15.5 16-3.4-3.4a1 1 0 0 0-1.1.1l-2.5 2.5a1 1 0 0 1-1.1.1L3.9 12.8"></path><path d="m15.5 16 4.6-4.6a1 1 0 0 0-1.1-1.1L16.5 13"></path></svg>
-                    <span>Meta</span>
+            
+            <!-- Dayein (Right) Taraf Ki Image Aur Service Card -->
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <img src="https://placehold.co/800x800/27374D/ffffff?text=James+Adam" 
+                         alt="James Adam - Digital Freelancer">
                 </div>
-                <div class="sponsor-logo">
-                    <!-- Google Icon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    <span>Google</span>
-                </div>
-                <div class="sponsor-logo">
-                    <!-- LinkedIn Icon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    <span>Linked in</span>
-                </div>
-                <div class="sponsor-logo">
-                    <!-- Slack Icon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3H7V9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v2"></path><path d="M18 10V7a3 3 0 0 0-3-3h-1a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3Z"></path><path d="M12 22v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3Z"></path></svg>
-                    <span>slack</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- "What Can I Do" Section (Two-Column Layout) --><section id="services">
-            <div class="container services-flex-container">
                 
-                <!-- Left Content (Text & Stats) --><div class="services-left">
-                    <h2>What Can I Do For Your Needs</h2>
-                    <p>
-                        It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality.
-                    </p>
+                <!-- Services Card Jo Image Ko Overlap Kar Raha Hai -->
+                <div class="services-card">
+                    <p class="title">Services</p>
+                    <h2>Let's build quality products in programming and design with my services</h2>
+                    <a href="#">
+                        show more <i class="fas fa-arrow-right" style="font-size: 14px; margin-left: 8px;"></i>
+                    </a>
                     
-                    <!-- Stats section (4-part layout) --><div class="stats-container">
-                        <div class="stat-item">
-                            <span>250+</span>
-                            <p>Project Completed</p>
-                        </div>
-                        <div class="stat-item">
-                            <span>100+</span>
-                            <p>Community Network</p>
-                        </div>
-                        <div class="stat-item">
-                            <span>30+</span>
-                            <p>Contract Remote</p>
-                        </div>
-                        <div class="stat-item">
-                            <span>10+</span>
-                            <p>Years Experience</p>
-                        </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
                     </div>
-                </div>
-
-                <!-- Right Content (Services List) --><div class="services-right">
-                    
-                    <!-- Service Item 1 (No Hover) --><a href="#" class="service-item">
-                        <div class="service-item-left">
-                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=UI/UX&font=inter" alt="UI/UX Design Preview">
-                            <div>
-                                <h3>UI/UX Design</h3>
-                                <p>117 Project</p>
-                            </div>
-                        </div>
-                        <div class="service-item-right">
-                            <!-- Arrow Icon --><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </div>
-                    </a>
-
-                    <!-- Service Item 2 (No Hover) --><a href="#" class="service-item">
-                        <div class="service-item-left">
-                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=Front+End&font=inter" alt="Front End Develop Preview">
-                            <div>
-                                <h3>Front End Develop</h3>
-                                <p>84 Project</p>
-                            </div>
-                        </div>
-                        <div class="service-item-right">
-                            <!-- Arrow Icon --><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </div>
-                    </a>
-
-                    <!-- Service Item 3 (No Hover) --><a href="#" class="service-item">
-                        <div class="service-item-left">
-                            <img src="https://placehold.co/100x75/374151/EBF8FF?text=Mobile+App&font=inter" alt="Mobile App Develop Preview">
-                            <div>
-                                <h3>Mobile App Develop</h3>
-                                <p>32 Project</p>
-                            </div>
-                        </div>
-                        <div class="service-item-right">
-                            <!-- Arrow Icon --><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </div>
-                    </a>
-
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- 3. Client Bar (Partner Logos) Ka Code -->
+    <section class="client-bar-section">
+        <div class="container">
+            <div class="client-bar">
+                <div class="client-logo">
+                    <i class="fab fa-meta meta-icon"></i>
+                    <span>Meta</span>
+                </div>
+                <div class="client-logo">
+                    <i class="fab fa-google google-icon"></i>
+                    <span>Google</span>
+                </div>
+                <div class="client-logo">
+                    <i class="fab fa-linkedin linkedin-icon"></i>
+                    <span>Linked <span style="color: #0A66C2;">in</span></span>
+                </div>
+                <div class="client-logo">
+                    <i class="fab fa-slack slack-icon"></i>
+                    <span><span class="slack-text-green">s</span>lack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Aur Statistics (Aadad-o-Shumaar) Section Ka Code -->
+    <section class="services-stats-section">
+        <div class="container">
+            <div class="services-stats-grid">
+                
+                <!-- Bayein Taraf Ka Title Aur Stats -->
+                <div class="stats-left">
+                    <h2>What Can I Do For Your Needs</h2>
+                    <div class="underline"></div>
+                    <p class="description">
+                        It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality.
+                    </p>
+
+                    <!-- Statistics Grid Ka Code -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <p class="number">250+</p>
+                            <p class="label">Project Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="number">100+</p>
+                            <p class="label">Community Network</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="number">30+</p>
+                            <p class="label">Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="number">10+</p>
+                            <p class="label">Awards Won</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dayein Taraf Ke Service Cards -->
+                <div class="services-right">
+                    
+                    <!-- Service Card 1: UI/UX Design -->
+                    <div class="service-card-item">
+                        <div class="icon-text">
+                            <img src="https://placehold.co/60x60/34495E/ffffff?text=UX" alt="UI/UX Design Icon" class="icon">
+                            <div>
+                                <h3>UI/UX Design</h3>
+                                <p class="project-count">117 Project</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+
+                    <!-- Service Card 2: Front End Develop -->
+                    <div class="service-card-item">
+                        <div class="icon-text">
+                            <img src="https://placehold.co/60x60/2C3E50/ffffff?text=FE" alt="Front End Develop Icon" class="icon">
+                            <div>
+                                <h3>Front End Develop</h3>
+                                <p class="project-count">84 Project</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+
+                    <!-- Service Card 3: Mobile App Develop -->
+                    <div class="service-card-item">
+                        <div class="icon-text">
+                            <img src="https://placehold.co/60x60/4A235A/ffffff?text=MA" alt="Mobile App Develop Icon" class="icon">
+                            <div>
+                                <h3>Mobile App Develop</h3>
+                                <p class="project-count">32 Project</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
+
 
 
 
